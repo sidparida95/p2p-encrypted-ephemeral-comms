@@ -30,7 +30,7 @@
   <g>
     <rect x="270" y="200" width="160" height="64" rx="10" fill="#2E7D32" stroke="#1B5E20" stroke-width="1.5"/>
     <text class="stateLbl" x="350" y="228" text-anchor="middle">💬 CHAT</text>
-    <text class="stateSub" x="350" y="248" text-anchor="middle">Type & send / receive</text>
+    <text class="stateSub" x="350" y="248" text-anchor="middle">Type &amp; send / receive</text>
   </g>
 
   <!-- ENCRYPT -->
