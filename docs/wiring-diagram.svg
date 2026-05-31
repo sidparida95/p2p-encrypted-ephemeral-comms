@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif">
+  <title>Cardputer LoRa Chat — Wiring diagram</title>
+  <desc>Wiring between M5Stack Cardputer Grove port, AMS1117 3.3V regulator (Robu Part 31179), and Reyax RYLR998 LoRa module.</desc>
+
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="context-stroke"/>
+    </marker>
+    <style>
+      .title  { font-size: 22px; font-weight: 700; fill: #1a1a1a; }
+      .compH  { font-size: 16px; font-weight: 700; }
+      .compS  { font-size: 11px; fill: #555; }
+      .pin    { font-size: 12px; font-family: 'SF Mono', Menlo, monospace; }
+      .lbl    { font-size: 11px; font-weight: 600; }
+      .note   { font-size: 11px; fill: #666; font-style: italic; }
+    </style>
+  </defs>
+
+  <text class="title" x="400" y="34" text-anchor="middle">Cardputer LoRa Chat — Wiring</text>
+
+  <!-- ============ Cardputer ============ -->
+  <g>
+    <rect x="40" y="100" width="190" height="180" rx="10" fill="#FFF7E0" stroke="#E0A800" stroke-width="2"/>
+    <text class="compH" x="135" y="128" text-anchor="middle" fill="#7A5C00">M5Stack Cardputer</text>
+    <text class="compS" x="135" y="146" text-anchor="middle">ESP32-S3 · 1.14" LCD</text>
+
+    <line x1="60" y1="158" x2="210" y2="158" stroke="#E0A800" stroke-width="0.8" opacity="0.4"/>
+
+    <!-- Grove pins -->
+    <circle cx="65" cy="180" r="4" fill="#D32F2F"/>
+    <text class="pin" x="78" y="184">Pin 1 — 5V</text>
+
+    <circle cx="65" cy="208" r="4" fill="#212121"/>
+    <text class="pin" x="78" y="212">Pin 2 — GND</text>
+
+    <circle cx="65" cy="236" r="4" fill="#FF9800"/>
+    <text class="pin" x="78" y="240">Pin 3 — G2 (RX)</text>
+
+    <circle cx="65" cy="264" r="4" fill="#1976D2"/>
+    <text class="pin" x="78" y="268">Pin 4 — G1 (TX)</text>
+  </g>
+
+  <!-- ============ AMS1117 ============ -->
+  <g>
+    <rect x="330" y="130" width="160" height="140" rx="10" fill="#E8F4FF" stroke="#1976D2" stroke-width="2"/>
+    <text class="compH" x="410" y="158" text-anchor="middle" fill="#0D47A1">AMS1117 3.3V</text>
+    <text class="compS" x="410" y="174" text-anchor="middle">Part 31179 · Robu.in</text>
+
+    <line x1="345" y1="186" x2="475" y2="186" stroke="#1976D2" stroke-width="0.8" opacity="0.4"/>
+
+    <circle cx="355" cy="208" r="4" fill="#D32F2F"/>
+    <text class="pin" x="368" y="212">IN  (5V)</text>
+
+    <circle cx="355" cy="236" r="4" fill="#212121"/>
+    <text class="pin" x="368" y="240">GND</text>
+
+    <circle cx="355" cy="264" r="4" fill="#2E7D32"/>
+    <text class="pin" x="368" y="268">OUT (3.3V)</text>
+  </g>
+
+  <!-- ============ RYLR998 ============ -->
+  <g>
+    <rect x="590" y="80" width="170" height="280" rx="10" fill="#F3E5F5" stroke="#7B1FA2" stroke-width="2"/>
+    <text class="compH" x="675" y="108" text-anchor="middle" fill="#4A148C">RYLR998</text>
+    <text class="compS" x="675" y="124" text-anchor="middle">Reyax LoRa transceiver</text>
+
+    <line x1="605" y1="136" x2="745" y2="136" stroke="#7B1FA2" stroke-width="0.8" opacity="0.4"/>
+
+    <circle cx="615" cy="158" r="4" fill="#2E7D32"/>
+    <text class="pin" x="628" y="162">VCC (3.3V)</text>
+
+    <circle cx="615" cy="186" r="4" fill="#212121"/>
+    <text class="pin" x="628" y="190">GND</text>
+
+    <circle cx="615" cy="214" r="4" fill="#FF9800"/>
+    <text class="pin" x="628" y="218">TXD</text>
+
+    <circle cx="615" cy="242" r="4" fill="#1976D2"/>
+    <text class="pin" x="628" y="246">RXD</text>
+
+    <circle cx="615" cy="270" r="4" fill="#9E9E9E"/>
+    <text class="pin" x="628" y="274">RST (n/c)</text>
+
+    <circle cx="615" cy="298" r="4" fill="#9E9E9E"/>
+    <text class="pin" x="628" y="302">NRST (n/c)</text>
+
+    <text class="compS" x="675" y="332" text-anchor="middle">📡 Attach antenna before power-on</text>
+  </g>
+
+  <!-- ============ WIRES ============ -->
+  <!-- 5V: Cardputer pin1 -> AMS1117 IN -->
+  <path d="M65 180 L 240 180 L 240 208 L 355 208" stroke="#D32F2F" stroke-width="2" fill="none" marker-end="url(#arr)"/>
+  <text class="lbl" x="260" y="174" fill="#D32F2F">5V</text>
+
+  <!-- GND: Cardputer pin2 -> RYLR998 GND (via RYLR998 GND pin) -->
+  <path d="M65 208 L 250 208 L 250 186 L 615 186" stroke="#212121" stroke-width="2" fill="none" marker-end="url(#arr)"/>
+  <text class="lbl" x="330" y="180" fill="#212121">GND</text>
+
+  <!-- GND chain: RYLR998 GND -> AMS1117 GND -->
+  <path d="M615 186 L 540 186 L 540 236 L 355 236" stroke="#212121" stroke-width="2" stroke-dasharray="4 3" fill="none" marker-end="url(#arr)"/>
+  <text class="lbl" x="430" y="252" fill="#212121">GND (chain)</text>
+
+  <!-- 3.3V: AMS1117 OUT -> RYLR998 VCC -->
+  <path d="M355 264 L 510 264 L 510 158 L 615 158" stroke="#2E7D32" stroke-width="2" fill="none" marker-end="url(#arr)"/>
+  <text class="lbl" x="430" y="150" fill="#2E7D32">3.3V</text>
+
+  <!-- G1 (TX) -> RYLR998 RXD -->
+  <path d="M65 264 L 230 264 L 230 380 L 565 380 L 565 242 L 615 242" stroke="#1976D2" stroke-width="2" fill="none" marker-end="url(#arr)"/>
+  <text class="lbl" x="380" y="372" fill="#1976D2">G1 TX → RXD</text>
+
+  <!-- G2 (RX) <- RYLR998 TXD -->
+  <path d="M65 236 L 220 236 L 220 405 L 575 405 L 575 214 L 615 214" stroke="#FF9800" stroke-width="2" fill="none" marker-end="url(#arr)"/>
+  <text class="lbl" x="380" y="425" fill="#B26A00">G2 RX ← TXD</text>
+
+  <!-- ============ NOTES ============ -->
+  <g transform="translate(40 450)">
+    <rect width="720" height="56" rx="6" fill="#FAFAFA" stroke="#BDBDBD" stroke-width="1" stroke-dasharray="3 2"/>
+    <text class="note" x="14" y="18">• RYLR998 needs 3.3V — never connect VCC to the Cardputer's 5V rail directly.</text>
+    <text class="note" x="14" y="34">• AMS1117 has only one GND pin, so chain it: Grove GND → RYLR998 GND → AMS1117 GND (two F2F wires on one header pin).</text>
+    <text class="note" x="14" y="50">• ESP32-S3 GPIO is already 3.3V logic — no level shifter needed on the UART data lines.</text>
+  </g>
+</svg>
