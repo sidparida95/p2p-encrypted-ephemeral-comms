@@ -33,3 +33,10 @@ and this project (will eventually) adhere to [Semantic Versioning](https://semve
 - Protocol / cryptography document
 - Contributing guide
 - Security policy
+
+### Hardware
+- Open-source PCB carrier board (50 × 22 mm, 2-layer) for clean assembly
+- `generate_gerbers.py` — single-file Python script that emits manufacturable Gerber X2 + Excellon 2 files (no CAD required)
+- Pre-built `gerbers.zip` ready to upload to Robu / JLCPCB / PCBWay
+- Schematic + board preview SVGs
+- ~₹90 / $1.20 per assembled board (qty 10 batch)

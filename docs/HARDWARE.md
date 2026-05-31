@@ -22,8 +22,9 @@ For a working **two-way chat** you need **two complete nodes**: ≈ **$96 USD / 
 
 | Component | Purpose | USD | INR |
 |---|---|---:|---:|
+| **Open-source PCB carrier** ([`hardware/pcb/`](../hardware/pcb/)) | Replaces parts #3 + #4 with a single board. Cleaner build, no wire-on-wire workarounds. | $1.20 | ₹90 |
 | microSD card (≤ 32 GB, FAT32) | Load firmware via SD launcher (M5Launcher, Bruce, etc.) | $5 | ₹400 |
-| Small breadboard (170 tie-point mini) | Cleaner GND junction than F2F-on-F2F | $2 | ₹100 |
+| Small breadboard (170 tie-point mini) | Cleaner GND junction than F2F-on-F2F (only if not using the PCB) | $2 | ₹100 |
 | 0.5W LiPo (already in Cardputer) | Cardputer has a 120-300 mAh battery built in | — | — |
 | External 868 MHz antenna with u.FL pigtail | Range upgrade beyond the stock spring antenna | $5–10 | ₹400–800 |
 

@@ -1,0 +1,15 @@
+G04 Cardputer LoRa Carrier Board*
+%TF.GenerationSoftware,cardputer-lora-chat,1.0*%
+%TF.FileFunction,Profile,NP*%
+%TF.FilePolarity,Positive*%
+%FSLAX46Y46*%
+%MOMM*%
+%LPD*%
+%ADD10C,0.1000*%
+D10*
+X0Y0D02*
+X50000000Y0D01*
+X50000000Y22000000D01*
+X0Y22000000D01*
+X0Y0D01*
+M02*

@@ -44,6 +44,8 @@ Just long-range, encrypted, point-to-point messaging in your pocket.
 **Total cost per node: ≈ $48 USD / ₹3,900 INR**
 **Two-node chat setup: ≈ $96 USD / ₹7,800 INR**
 
+> **Want a cleaner build?** See [`hardware/pcb/`](hardware/pcb/) for an open-source PCB design that replaces the AMS1117 breakout + jumper wires with a single board that plugs directly into the Grove port. Adds ~$1.20 / ₹90 per node but is far more reliable.
+
 > **Frequency note** — the RYLR998 covers 868 MHz (EU/IN) and 915 MHz (US) by configuration. Make sure your chosen band is legal in your country. Default in this firmware is **865 MHz** (India ISM band). Change with `/freq` or by editing `loraFreq` in the source.
 
 ## Wiring
@@ -170,6 +172,14 @@ cardputer-lora-chat/
 │   ├── platformio.ini               # PlatformIO config
 │   ├── build.sh                     # arduino-cli build script (Linux/Mac)
 │   └── build.bat                    # arduino-cli build script (Windows)
+├── hardware/
+│   └── pcb/
+│       ├── README.md                # BOM + manufacturing guide
+│       ├── gerbers.zip              # ← upload this to Robu / JLCPCB / PCBWay
+│       ├── gerbers/                 # individual Gerber + drill files
+│       ├── generate_gerbers.py      # design source, regenerable
+│       ├── schematic.svg            # circuit diagram
+│       └── board-preview.svg        # rendered top view, 50×22 mm
 ├── docs/
 │   ├── HARDWARE.md                  # detailed BOM, sources, wiring tips
 │   ├── BUILDING.md                  # all build/flash paths
