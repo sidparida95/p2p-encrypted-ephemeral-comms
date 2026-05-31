@@ -1,174 +1,164 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 560" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif">
-  <title>Cardputer LoRa Chat — PCB schematic</title>
-  <desc>Schematic of the regulator + RYLR998 carrier board for the Cardputer Grove port.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 460" font-family="-apple-system, 'Segoe UI', sans-serif">
+  <title>Cardputer LoRa Carrier — schematic</title>
 
   <defs>
     <style>
-      .title  { font-size: 22px; font-weight: 700; fill: #1a1a1a; }
-      .lbl    { font-size: 11px; font-family: 'SF Mono', Menlo, monospace; fill: #222; }
-      .pin    { font-size: 10px; font-family: 'SF Mono', Menlo, monospace; fill: #444; }
-      .net    { font-size: 12px; font-weight: 700; font-family: 'SF Mono', Menlo, monospace; }
-      .ref    { font-size: 12px; font-weight: 700; fill: #0044AA; }
-      .val    { font-size: 11px; fill: #333; }
-      .wire   { stroke: #0044AA; stroke-width: 1.6; fill: none; }
-      .gnd    { stroke: #555; stroke-width: 1.6; fill: none; }
-      .dot    { fill: #0044AA; }
-      .box    { fill: #FFFCEA; stroke: #B58A00; stroke-width: 1.5; }
-      .ic     { fill: #E8F4FF; stroke: #1976D2; stroke-width: 1.5; }
-      .cap    { fill: none; stroke: #222; stroke-width: 1.6; }
-      .note   { font-size: 10px; fill: #666; font-style: italic; }
+      .wire    { stroke: #1B5E20; stroke-width: 2.2; fill: none; }
+      .wire-pwr{ stroke: #C62828; stroke-width: 2.6; fill: none; }
+      .wire-gnd{ stroke: #424242; stroke-width: 2.6; fill: none; }
+      .pad     { fill: #FFD54F; stroke: #8A6B00; stroke-width: 1.2; }
+      .body    { fill: #FFFFFF; stroke: #263238; stroke-width: 1.8; }
+      .module  { fill: #ECEFF1; stroke: #263238; stroke-width: 1.8; }
+      .lbl     { font-size: 13px; fill: #263238; font-weight: 600; }
+      .pin     { font-size: 12px; fill: #263238; font-family: monospace; }
+      .net     { font-size: 11px; fill: #1B5E20; font-family: monospace; font-weight: 700; }
+      .title   { font-size: 18px; fill: #1B5E20; font-weight: 700; }
+      .note    { font-size: 11px; fill: #546E7A; font-style: italic; }
+      .junction{ fill: #1B5E20; }
     </style>
   </defs>
 
-  <text class="title" x="440" y="32" text-anchor="middle">Cardputer LoRa Chat — Carrier Board Schematic</text>
+  <!-- background -->
+  <rect width="880" height="460" fill="#FAFAFA"/>
 
-  <!-- ============ J1: GROVE CONNECTOR ============ -->
-  <g>
-    <rect class="box" x="50" y="100" width="120" height="170" rx="4"/>
-    <text class="ref" x="110" y="92" text-anchor="middle">J1</text>
-    <text class="val" x="110" y="290" text-anchor="middle">Grove HY2.0-4P</text>
-    <text class="note" x="110" y="304" text-anchor="middle">(to Cardputer)</text>
+  <text x="440" y="32" text-anchor="middle" class="title">Cardputer LoRa Carrier — schematic (v2, all through-hole)</text>
+  <text x="440" y="50" text-anchor="middle" class="note">U1 is the Robu Part 31179 AMS1117-3.3 breakout module (caps built in). No SMD parts.</text>
 
-    <!-- pins -->
-    <line x1="170" y1="130" x2="220" y2="130" stroke="#222" stroke-width="1.6"/>
-    <text class="pin" x="160" y="126" text-anchor="end">1</text>
-    <text class="lbl" x="178" y="126">5V</text>
+  <!-- ============== J1: Cardputer Grove socket ============== -->
+  <g transform="translate(40, 130)">
+    <rect class="body" x="0" y="0" width="120" height="180" rx="6"/>
+    <text x="60" y="22" text-anchor="middle" class="lbl">J1</text>
+    <text x="60" y="38" text-anchor="middle" class="note">Grove HY2.0</text>
+    <text x="60" y="52" text-anchor="middle" class="note">(to Cardputer)</text>
 
-    <line x1="170" y1="170" x2="220" y2="170" stroke="#222" stroke-width="1.6"/>
-    <text class="pin" x="160" y="166" text-anchor="end">2</text>
-    <text class="lbl" x="178" y="166">GND</text>
-
-    <line x1="170" y1="210" x2="220" y2="210" stroke="#222" stroke-width="1.6"/>
-    <text class="pin" x="160" y="206" text-anchor="end">3</text>
-    <text class="lbl" x="178" y="206">G2 (RX)</text>
-
-    <line x1="170" y1="250" x2="220" y2="250" stroke="#222" stroke-width="1.6"/>
-    <text class="pin" x="160" y="246" text-anchor="end">4</text>
-    <text class="lbl" x="178" y="246">G1 (TX)</text>
+    <!-- 4 pins on right edge -->
+    <line class="wire" x1="120" y1="80"  x2="140" y2="80"/>
+    <line class="wire" x1="120" y1="105" x2="140" y2="105"/>
+    <line class="wire" x1="120" y1="130" x2="140" y2="130"/>
+    <line class="wire" x1="120" y1="155" x2="140" y2="155"/>
+    <circle class="pad" cx="120" cy="80"  r="4"/>
+    <circle class="pad" cx="120" cy="105" r="4"/>
+    <circle class="pad" cx="120" cy="130" r="4"/>
+    <circle class="pad" cx="120" cy="155" r="4"/>
+    <text x="116" y="84"  text-anchor="end" class="pin">1 · 5V</text>
+    <text x="116" y="109" text-anchor="end" class="pin">2 · GND</text>
+    <text x="116" y="134" text-anchor="end" class="pin">3 · G2 / RX</text>
+    <text x="116" y="159" text-anchor="end" class="pin">4 · G1 / TX</text>
   </g>
 
-  <!-- ============ U1: AMS1117-3.3 ============ -->
-  <g transform="translate(360 110)">
-    <rect class="ic" width="160" height="100" rx="6"/>
-    <text class="ref" x="80" y="-8" text-anchor="middle">U1</text>
-    <text class="val" x="80" y="55" text-anchor="middle" font-weight="700">AMS1117-3.3</text>
-    <text class="note" x="80" y="72" text-anchor="middle">SOT-223  ·  5V → 3.3V</text>
+  <!-- ============== U1: AMS1117-3.3 breakout MODULE (Robu 31179) ============== -->
+  <g transform="translate(360, 90)">
+    <!-- outer dashed = the 31179 module's own little PCB -->
+    <rect x="-10" y="-10" width="160" height="260" rx="8"
+          fill="#F1F8E9" stroke="#558B2F" stroke-width="1.4" stroke-dasharray="6 4"/>
+    <text x="70" y="6" text-anchor="middle" class="note">Robu Part 31179 — has its own PCB + caps</text>
 
-    <text class="pin" x="6" y="34">IN</text>
-    <text class="pin" x="154" y="34" text-anchor="end">OUT</text>
-    <text class="pin" x="80" y="98" text-anchor="middle">GND</text>
+    <!-- inner = AMS1117 regulator on the module -->
+    <rect class="module" x="20" y="40" width="100" height="80" rx="4"/>
+    <text x="70" y="68" text-anchor="middle" class="lbl">AMS1117-3.3</text>
+    <text x="70" y="86" text-anchor="middle" class="pin">U1</text>
+    <text x="70" y="104" text-anchor="middle" class="note">(SOT-223 on module)</text>
 
-    <!-- pin stubs -->
-    <line x1="0" y1="30" x2="-30" y2="30" stroke="#222" stroke-width="1.6"/>
-    <line x1="160" y1="30" x2="190" y2="30" stroke="#222" stroke-width="1.6"/>
-    <line x1="80" y1="100" x2="80" y2="130" stroke="#222" stroke-width="1.6"/>
+    <!-- onboard caps shown stylized for clarity -->
+    <!-- C_in (on module, between VIN and GND) -->
+    <line class="wire" x1="35"  y1="40" x2="35"  y2="20"/>
+    <line class="wire" x1="35"  y1="140" x2="35" y2="120"/>
+    <line stroke="#263238" stroke-width="2.2" x1="25" y1="20" x2="45" y2="20"/>
+    <line stroke="#263238" stroke-width="2.2" x1="20" y1="24" x2="50" y2="24"/>
+    <text x="56" y="24" class="pin">10µF</text>
+    <text x="56" y="36" class="note">(on module)</text>
+
+    <!-- C_out -->
+    <line class="wire" x1="105" y1="40"  x2="105" y2="20"/>
+    <line class="wire" x1="105" y1="140" x2="105" y2="120"/>
+    <line stroke="#263238" stroke-width="2.2" x1="95"  y1="20" x2="115" y2="20"/>
+    <line stroke="#263238" stroke-width="2.2" x1="90"  y1="24" x2="120" y2="24"/>
+    <text x="86"  y="24" text-anchor="end" class="pin">10µF</text>
+    <text x="86"  y="36" text-anchor="end" class="note">(on module)</text>
+
+    <!-- 3 male header pins at bottom (this is what plugs into our carrier) -->
+    <!-- Pin row -->
+    <line stroke="#263238" stroke-width="1.4" x1="20" y1="140" x2="120" y2="140"/>
+    <text x="-12" y="144" text-anchor="end" class="note">module pin row →</text>
+    <line class="wire-pwr" x1="35"  y1="140" x2="35"  y2="170"/>
+    <line class="wire-gnd" x1="70"  y1="140" x2="70"  y2="170"/>
+    <line class="wire-pwr" x1="105" y1="140" x2="105" y2="170"/>
+    <circle class="pad" cx="35"  cy="170" r="5"/>
+    <circle class="pad" cx="70"  cy="170" r="5"/>
+    <circle class="pad" cx="105" cy="170" r="5"/>
+    <text x="35"  y="190" text-anchor="middle" class="pin">VIN</text>
+    <text x="70"  y="190" text-anchor="middle" class="pin">GND</text>
+    <text x="105" y="190" text-anchor="middle" class="pin">VOUT</text>
+    <text x="35"  y="208" text-anchor="middle" class="note">5 V in</text>
+    <text x="70"  y="208" text-anchor="middle" class="note">0 V</text>
+    <text x="105" y="208" text-anchor="middle" class="note">3.3 V out</text>
+    <text x="70" y="234" text-anchor="middle" class="note">↑ these 3 pins push through the carrier's THT holes ↑</text>
   </g>
 
-  <!-- ============ C1: input cap ============ -->
-  <g transform="translate(280 160)">
-    <text class="ref" x="14" y="-2">C1</text>
-    <text class="val" x="14" y="42">10µF</text>
-    <!-- cap symbol: two horizontal lines, leads top/bottom -->
-    <line x1="0" y1="10" x2="28" y2="10" class="cap"/>
-    <line x1="0" y1="22" x2="28" y2="22" class="cap"/>
-    <line x1="14" y1="-10" x2="14" y2="10" stroke="#222" stroke-width="1.6"/>
-    <line x1="14" y1="22" x2="14" y2="64" stroke="#222" stroke-width="1.6"/>
+  <!-- ============== J2: RYLR998 socket ============== -->
+  <g transform="translate(700, 110)">
+    <rect class="body" x="0" y="0" width="140" height="220" rx="6"/>
+    <text x="70" y="22" text-anchor="middle" class="lbl">J2 → RYLR998</text>
+    <text x="70" y="38" text-anchor="middle" class="note">(1×5 female header)</text>
+
+    <!-- 5 pins on left edge, ORDER FROM USER: GND, TX, RX, RST, VDD (bottom-up on board) -->
+    <!-- Drawn top-down here as: VDD, RST, RX, TX, GND -->
+    <line class="wire" x1="0" y1="70"  x2="-20" y2="70"/>
+    <line class="wire" x1="0" y1="100" x2="-20" y2="100"/>
+    <line class="wire" x1="0" y1="130" x2="-20" y2="130"/>
+    <line class="wire" x1="0" y1="160" x2="-20" y2="160"/>
+    <line class="wire" x1="0" y1="190" x2="-20" y2="190"/>
+    <circle class="pad" cx="0" cy="70"  r="4"/>
+    <circle class="pad" cx="0" cy="100" r="4"/>
+    <circle class="pad" cx="0" cy="130" r="4"/>
+    <circle class="pad" cx="0" cy="160" r="4"/>
+    <circle class="pad" cx="0" cy="190" r="4"/>
+    <text x="6" y="74"  class="pin">5 · VDD</text>
+    <text x="6" y="104" class="pin">4 · RST</text>
+    <text x="6" y="134" class="pin">3 · RX  ← Cardputer TX</text>
+    <text x="6" y="164" class="pin">2 · TX  → Cardputer RX</text>
+    <text x="6" y="194" class="pin">1 · GND</text>
   </g>
 
-  <!-- ============ C2: output cap ============ -->
-  <g transform="translate(580 160)">
-    <text class="ref" x="14" y="-2">C2</text>
-    <text class="val" x="14" y="42">22µF</text>
-    <line x1="0" y1="10" x2="28" y2="10" class="cap"/>
-    <line x1="0" y1="22" x2="28" y2="22" class="cap"/>
-    <line x1="14" y1="-10" x2="14" y2="10" stroke="#222" stroke-width="1.6"/>
-    <line x1="14" y1="22" x2="14" y2="64" stroke="#222" stroke-width="1.6"/>
+  <!-- ============== WIRING ============== -->
+
+  <!-- 5V: J1 pin 1 (5V) → U1 VIN -->
+  <path class="wire-pwr" d="M 180,210 L 240,210 L 240,150 L 395,150 L 395,260"/>
+  <text x="280" y="142" class="net">+5V</text>
+
+  <!-- GND: J1 pin 2 → U1 GND → J2 GND  (one big GND net) -->
+  <path class="wire-gnd" d="M 180,235 L 280,235 L 280,360 L 430,360 L 430,260"/>
+  <path class="wire-gnd" d="M 430,360 L 680,360 L 680,300"/>
+  <circle class="junction" cx="280" cy="360" r="3"/>
+  <circle class="junction" cx="430" cy="360" r="3"/>
+  <circle class="junction" cx="680" cy="360" r="3"/>
+  <text x="475" y="354" class="net">GND</text>
+
+  <!-- 3.3V: U1 VOUT → J2 VDD -->
+  <path class="wire-pwr" d="M 465,260 L 465,80 L 690,80 L 690,180"/>
+  <text x="560" y="72" class="net">+3.3V</text>
+
+  <!-- G1 / Cardputer TX → RYLR RX -->
+  <path class="wire" d="M 180,285 L 600,285 L 600,240 L 680,240"/>
+  <text x="380" y="278" class="net">G1 (Cardputer TX)</text>
+
+  <!-- G2 / Cardputer RX ← RYLR TX -->
+  <path class="wire" d="M 180,260 L 580,260 L 580,270 L 680,270"/>
+  <text x="380" y="253" class="net">G2 (Cardputer RX)</text>
+
+  <!-- legend -->
+  <g transform="translate(40, 400)">
+    <rect x="0" y="0" width="800" height="42" fill="#FFFFFF" stroke="#90A4AE" stroke-width="1" rx="4"/>
+    <line class="wire-pwr" x1="20" y1="14" x2="50" y2="14"/>
+    <text x="58" y="18" class="pin">power</text>
+    <line class="wire-gnd" x1="130" y1="14" x2="160" y2="14"/>
+    <text x="168" y="18" class="pin">ground</text>
+    <line class="wire" x1="240" y1="14" x2="270" y2="14"/>
+    <text x="278" y="18" class="pin">signal</text>
+    <circle class="pad" cx="370" cy="14" r="4"/>
+    <text x="382" y="18" class="pin">through-hole pad</text>
+    <text x="510" y="18" class="pin">Dashed green box = the 31179 module (bring-your-own; plugs into 3 THT holes)</text>
+    <text x="20" y="35" class="note">Carrier holds: 4 holes for J1 (Grove), 3 holes for U1 (31179 module), 5 holes for J2 (RYLR998 socket), 1 mounting hole. That's it.</text>
   </g>
-
-  <!-- ============ J2: RYLR998 socket ============ -->
-  <g>
-    <rect class="box" x="700" y="80" width="140" height="320" rx="4"/>
-    <text class="ref" x="770" y="72" text-anchor="middle">J2</text>
-    <text class="val" x="770" y="418" text-anchor="middle">RYLR998 socket</text>
-    <text class="note" x="770" y="432" text-anchor="middle">(1×5 female header)</text>
-
-    <line x1="690" y1="120" x2="700" y2="120" stroke="#222" stroke-width="1.6"/>
-    <text class="pin" x="688" y="116" text-anchor="end">1</text>
-    <text class="lbl" x="710" y="116">GND</text>
-
-    <line x1="690" y1="180" x2="700" y2="180" stroke="#222" stroke-width="1.6"/>
-    <text class="pin" x="688" y="176" text-anchor="end">2</text>
-    <text class="lbl" x="710" y="176">TX</text>
-
-    <line x1="690" y1="240" x2="700" y2="240" stroke="#222" stroke-width="1.6"/>
-    <text class="pin" x="688" y="236" text-anchor="end">3</text>
-    <text class="lbl" x="710" y="236">RX</text>
-
-    <line x1="690" y1="300" x2="700" y2="300" stroke="#222" stroke-width="1.6"/>
-    <text class="pin" x="688" y="296" text-anchor="end">4</text>
-    <text class="lbl" x="710" y="296">RST</text>
-
-    <line x1="690" y1="360" x2="700" y2="360" stroke="#222" stroke-width="1.6"/>
-    <text class="pin" x="688" y="356" text-anchor="end">5</text>
-    <text class="lbl" x="710" y="356">VDD</text>
-  </g>
-
-  <!-- ============ WIRES ============ -->
-
-  <!-- 5V net: J1 pin 1 -> U1 IN; also to C1+ -->
-  <path class="wire" d="M 220 130 L 294 130 L 294 150"/>
-  <path class="wire" d="M 294 130 L 330 130 L 330 140"/>
-  <circle class="dot" cx="294" cy="130" r="3.5"/>
-  <text class="net" x="240" y="124" fill="#D32F2F">+5V</text>
-
-  <!-- 3V3 net: U1 OUT -> C2+ -> RYLR998 VDD (pin 5, y=360) -->
-  <path class="wire" d="M 550 140 L 594 140 L 594 150"/>
-  <path class="wire" d="M 594 140 L 660 140 L 660 360 L 690 360"/>
-  <circle class="dot" cx="594" cy="140" r="3.5"/>
-  <text class="net" x="610" y="132" fill="#2E7D32">+3V3</text>
-
-  <!-- GND net: shared bus across bottom -->
-  <!-- J1 pin 2 (GND) -->
-  <path class="gnd" d="M 220 170 L 250 170 L 250 380"/>
-  <!-- bus line -->
-  <path class="gnd" d="M 100 380 L 800 380"/>
-  <!-- U1 GND tap -->
-  <path class="gnd" d="M 440 240 L 440 380"/>
-  <!-- C1- -->
-  <path class="gnd" d="M 294 224 L 294 380"/>
-  <!-- C2- -->
-  <path class="gnd" d="M 594 224 L 594 380"/>
-  <!-- RYLR998 GND (pin 1, y=120) -->
-  <path class="gnd" d="M 690 120 L 670 120 L 670 380"/>
-  <!-- GND symbol on left -->
-  <g transform="translate(250 380)">
-    <line x1="-10" y1="0" x2="10" y2="0" stroke="#555" stroke-width="2"/>
-    <line x1="-7" y1="5" x2="7" y2="5" stroke="#555" stroke-width="2"/>
-    <line x1="-3" y1="10" x2="3" y2="10" stroke="#555" stroke-width="2"/>
-    <text class="net" x="0" y="28" text-anchor="middle" fill="#555">GND</text>
-  </g>
-  <circle class="dot" cx="294" cy="380" r="3.5"/>
-  <circle class="dot" cx="440" cy="380" r="3.5"/>
-  <circle class="dot" cx="594" cy="380" r="3.5"/>
-  <circle class="dot" cx="670" cy="380" r="3.5"/>
-  <circle class="dot" cx="250" cy="380" r="3.5"/>
-
-  <!-- G1_TX: Grove pin 4 (Cardputer TX) -> RYLR998 RX (pin 3, y=240) -->
-  <path class="wire" d="M 220 250 L 590 250 L 590 240 L 690 240"/>
-  <text class="net" x="350" y="244" fill="#1976D2">G1_TX</text>
-
-  <!-- G2_RX: Grove pin 3 (Cardputer RX) <- RYLR998 TX (pin 2, y=180) -->
-  <path class="wire" d="M 220 210 L 250 210 L 250 168 L 580 168 L 580 180 L 690 180"/>
-  <text class="net" x="350" y="162" fill="#FF9800">G2_RX</text>
-
-  <!-- ============ NOTES ============ -->
-  <g transform="translate(60 470)">
-    <rect width="760" height="74" rx="6" fill="#FAFAFA" stroke="#BDBDBD" stroke-width="1" stroke-dasharray="3 2"/>
-    <text class="note" x="14" y="20" font-size="11" fill="#333" font-style="normal" font-weight="600">Notes</text>
-    <text class="note" x="14" y="36">• Cardputer Grove pin 4 (G1) is GPIO 1 (Cardputer TX) → drives RYLR998 RXD.</text>
-    <text class="note" x="14" y="50">• Cardputer Grove pin 3 (G2) is GPIO 2 (Cardputer RX) ← reads RYLR998 TXD.</text>
-    <text class="note" x="14" y="64">• C1 is the AMS1117 input bulk cap; C2 is the output stability cap. Datasheet calls for ≥10µF on each rail.</text>
-  </g>
-
 </svg>
